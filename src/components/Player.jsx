@@ -22,14 +22,15 @@ export default function Player({name,symbol,isActive,onChangeName}){
         setPlayerName(event.target.value)
     }
 
-    return(
+    return (
         <li className={isActive ? 'active': undefined}>
-            <span className="player">
-                {!isEditing && <span className="player-name">{playerName}</span>}
-                {isEditing && <input type="text" value={playerName} required onChange={handleChange} />}
-                <span className="player-symbol">{symbol}</span>
-            </span>
-            <button onClick={handleEdit}> {isEditing ? 'Save' : 'Edit'} </button>
+          <span className="player">
+            {!isEditing && <span className="player-name">{playerName}</span>}
+            {isEditing && <input type="text" value={playerName} required onChange={handleChange} />}
+            <span className="player-symbol">{symbol}</span>
+                <button onClick={handleEdit}>{isEditing ? 'Save' : 'Edit'}</button>
+          </span>
         </li>
-    );
+      );
+      
 }

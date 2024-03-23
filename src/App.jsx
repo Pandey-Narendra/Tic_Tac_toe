@@ -99,26 +99,19 @@ function App() {
 		});
 	}
 
-  return (
-    <main>
-		<div id="game-container">
+	return (
+		<main className="main-container">
+		  <div id="game-container">
 			<ol id="players" className="highlight-player">
-				<Player name="Player 1" symbol="X" isActive = {activePlayer === 'X'} onChangeName={handlePlayerNameChange} />
-				<Player name="Player 2" symbol="O" isActive = {activePlayer === 'O'} onChangeName={handlePlayerNameChange} />
+			  <Player name="Player 1" symbol="X" isActive={activePlayer === 'X'} onChangeName={handlePlayerNameChange} />
+			  <Player name="Player 2" symbol="O" isActive={activePlayer === 'O'} onChangeName={handlePlayerNameChange} />
 			</ol>
-
-			{/* onSelectSquare variable stores the refference of the handleSelectSquare()
-				which will trigered inside the GameBoard component
-			*/}
-			{/* <GameBoard onSelectSquare={handleSelectedSquare} activePlayerSymbol={activePlayer} /> */}
-
-			{/* <GameBoard onSelectSquare={handleSelectedSquare} turns={gameTurns} /> */}
 			{(winner || hasDraw) && <GameOver winner={winner} onRestart={handleRestart} />}
 			<GameBoard onSelectSquare={handleSelectedSquare} board={gameBoard} />
-		</div>
-		<Log turns={gameTurns} />
-	</main>
-  )
-}
+		  </div>
+		  <Log turns={gameTurns} />
+		</main>
+	  );
+	}	  
 
 export default App
